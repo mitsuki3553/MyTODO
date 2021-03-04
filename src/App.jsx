@@ -16,6 +16,14 @@ export function App() {
     textCheck(value);  
   }
 
+  const onEnter =(e)=>{
+    if (e.keyCode === 13) 
+    {
+      e.preventDefault();
+      onClickAdd();
+    }
+  }
+
   const textCheck = (value)=>{
     for(let i=0;i<=incompleteList.length;i++){
       if(value === incompleteList[i]) return alreadyListedCheck(true) ;    
@@ -75,7 +83,7 @@ export function App() {
       <header>
         <h1>TODOリスト</h1>
         <Input 
-       
+        onEnter={onEnter}
         onClickAdd={onClickAdd} 
         text={text} 
         onChangeText={onChangeText}
